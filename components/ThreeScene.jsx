@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createNoise2D } from 'simplex-noise';
+import { Link } from 'react-router-dom';
 
 const ThreeScene = () => {
   const containerRef = useRef(null);
@@ -214,7 +215,23 @@ const ThreeScene = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%' }} />;
+  return <div className="relative w-full h-full">
+  {/* Botón de navegación */}
+  <div className="absolute top-4 w-full flex justify-center z-10">
+    <Link
+      to="/"
+      className="bg-white/50 hover:bg-black/70 text-white py-2 px-4 rounded-md shadow-md transition-all"
+      style={{
+        textShadow: '0 0 5px rgba(255,255,255,0.8)',
+      }}
+    >
+      Inicio
+    </Link>
+  </div>
+
+  {/* Contenedor de la escena */}
+  <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
+</div>;
 };
 
 export default ThreeScene;

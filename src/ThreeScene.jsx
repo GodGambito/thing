@@ -69,7 +69,7 @@ const ThreeScene = () => {
       o.add(mesh);
     }
 
-    scene.add(o)
+    //scene.add(o)
 
     const im = new THREE.InstancedMesh(sphereGeometry, agentMaterial, 20000);
     im.castShadow = true;
